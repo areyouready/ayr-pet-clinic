@@ -34,6 +34,7 @@
                 <configuration>
                     <!--overwrites default deploy-->
                     <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
         </plugins>
