@@ -3,9 +3,7 @@ package de.fnortheim.ayrpetclinic.bootstrap;
 import de.fnortheim.ayrpetclinic.model.Owner;
 import de.fnortheim.ayrpetclinic.model.Vet;
 import de.fnortheim.ayrpetclinic.service.OwnerService;
-import de.fnortheim.ayrpetclinic.service.OwnerServiceMap;
 import de.fnortheim.ayrpetclinic.service.VetService;
-import de.fnortheim.ayrpetclinic.service.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -18,9 +16,9 @@ public class DataLoader implements CommandLineRunner {
     private OwnerService ownerService;
     private VetService vetService;
 
-    public DataLoader() {
-        this.ownerService = new OwnerServiceMap();
-        this.vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override

@@ -1,12 +1,14 @@
 package de.fnortheim.ayrpetclinic.service;
 
 import de.fnortheim.ayrpetclinic.model.Pet;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 /**
  * created by sebastian on Apr, 2019
  */
+@Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
