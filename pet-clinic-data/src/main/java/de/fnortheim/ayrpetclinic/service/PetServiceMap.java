@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * created by sebastian on Apr, 2019
  */
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {
