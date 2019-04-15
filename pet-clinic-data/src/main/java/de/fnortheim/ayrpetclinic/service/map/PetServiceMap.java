@@ -1,6 +1,7 @@
-package de.fnortheim.ayrpetclinic.service;
+package de.fnortheim.ayrpetclinic.service.map;
 
 import de.fnortheim.ayrpetclinic.model.Pet;
+import de.fnortheim.ayrpetclinic.service.PetService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -28,7 +29,7 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetS
 
     @Override
     public Pet save(Pet object) {
-        return super.save(object.getId(), object);
+        return super.save(object);
     }
 
     @Override
