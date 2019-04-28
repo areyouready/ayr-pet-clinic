@@ -28,7 +28,6 @@ abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
         }
 
         map.put(object.getId(), object);
-
         return object;
     }
 
