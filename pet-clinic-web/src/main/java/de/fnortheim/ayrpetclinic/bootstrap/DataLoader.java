@@ -1,6 +1,7 @@
 package de.fnortheim.ayrpetclinic.bootstrap;
 
 import de.fnortheim.ayrpetclinic.model.Owner;
+import de.fnortheim.ayrpetclinic.model.Pet;
 import de.fnortheim.ayrpetclinic.model.PetType;
 import de.fnortheim.ayrpetclinic.model.Vet;
 import de.fnortheim.ayrpetclinic.service.OwnerService;
@@ -8,6 +9,8 @@ import de.fnortheim.ayrpetclinic.service.PetTypeService;
 import de.fnortheim.ayrpetclinic.service.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 /**
  * created by sebastian on Apr, 2019
@@ -39,12 +42,30 @@ public class DataLoader implements CommandLineRunner {
         Owner firstOwner = new Owner();
         firstOwner.setFirstName("Owner One");
         firstOwner.setLastName("first owner");
+        firstOwner.setAddress("Foostreet");
+        firstOwner.setCity("Berlin");
+        firstOwner.setTelephone("0815");
+        Pet firstOwnersPet = new Pet();
+        firstOwnersPet.setPetType(savedDogPetType);
+        firstOwnersPet.setOwner(firstOwner);
+        firstOwnersPet.setName("FirstOwnersDog");
+        firstOwnersPet.setBirthDate(LocalDate.now());
+        firstOwner.getPets().add(firstOwnersPet);
 
         ownerService.save(firstOwner);
 
         Owner secondOwner = new Owner();
         secondOwner.setFirstName("Owner Two");
         secondOwner.setLastName("second owner");
+        secondOwner.setAddress("Baravenue");
+        secondOwner.setCity("Philadelphia");
+        secondOwner.setTelephone("4711");
+        Pet secondOwnersPet = new Pet();
+        secondOwnersPet.setPetType(savedCatPetType);
+        secondOwnersPet.setOwner(secondOwner);
+        secondOwnersPet.setName("SecondOwnersCat");
+        secondOwnersPet.setBirthDate(LocalDate.now());
+        secondOwner.getPets().add(secondOwnersPet);
 
         ownerService.save(secondOwner);
 
