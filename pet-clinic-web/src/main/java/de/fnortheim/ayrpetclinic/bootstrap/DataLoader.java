@@ -1,8 +1,10 @@
 package de.fnortheim.ayrpetclinic.bootstrap;
 
 import de.fnortheim.ayrpetclinic.model.Owner;
+import de.fnortheim.ayrpetclinic.model.PetType;
 import de.fnortheim.ayrpetclinic.model.Vet;
 import de.fnortheim.ayrpetclinic.service.OwnerService;
+import de.fnortheim.ayrpetclinic.service.PetTypeService;
 import de.fnortheim.ayrpetclinic.service.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,16 +15,26 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private OwnerService ownerService;
-    private VetService vetService;
+    private final OwnerService ownerService;
+    private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        PetType dog = new PetType();
+        dog.setName("Dogname");
+        PetType savedDogPetType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        dog.setName("Catname");
+        PetType savedCatPetType = petTypeService.save(cat);
 
         Owner firstOwner = new Owner();
         firstOwner.setFirstName("Owner One");
