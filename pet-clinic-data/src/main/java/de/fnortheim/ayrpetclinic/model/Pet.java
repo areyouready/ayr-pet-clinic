@@ -1,16 +1,28 @@
 package de.fnortheim.ayrpetclinic.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
  * created by sebastian on Apr, 2019
  */
+@Entity
+@Table(name = "pets")
 public class Pet extends BaseEntity {
 
-    private PetType petType;
-    private Owner owner;
-    private LocalDate birthDate;
+    @Column(name = "name")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private PetType petType;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id") // there should be an owner_id on the pet record at database level
+    private Owner owner;
+
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
 
     public String getName() {
         return name;

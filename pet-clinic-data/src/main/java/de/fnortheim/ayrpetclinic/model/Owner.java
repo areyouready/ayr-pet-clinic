@@ -1,17 +1,28 @@
 package de.fnortheim.ayrpetclinic.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * created by sebastian on Apr, 2019
  */
+@Entity
+@Table(name = "owners")
 public class Owner extends Person {
 
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "city")
     private String city;
+
+    @Column(name = "telephone")
     private String telephone;
-    private Set<Pet> pets;
+
+    // if owner is deleted the pets should be deleted too
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private Set<Pet> pets = new HashSet<>();
 
     public String getAddress() {
         return address;
@@ -38,9 +49,6 @@ public class Owner extends Person {
     }
 
     public Set<Pet> getPets() {
-        if (pets == null) {
-            pets = new HashSet<>();
-        }
         return pets;
     }
 
