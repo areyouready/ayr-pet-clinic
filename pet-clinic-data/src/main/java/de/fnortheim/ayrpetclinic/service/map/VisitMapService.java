@@ -2,12 +2,14 @@ package de.fnortheim.ayrpetclinic.service.map;
 
 import de.fnortheim.ayrpetclinic.model.Visit;
 import de.fnortheim.ayrpetclinic.service.VisitService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 /**
  * created by sebastian on May, 2019
  */
+@Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
     @Override
     public Set<Visit> findAll() {
