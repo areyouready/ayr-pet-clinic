@@ -2,6 +2,7 @@ package de.fnortheim.ayrpetclinic.service.map;
 
 import de.fnortheim.ayrpetclinic.model.Specialty;
 import de.fnortheim.ayrpetclinic.service.SpecialtyService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -10,6 +11,7 @@ import java.util.Set;
  * created by sebastian on May, 2019
  */
 @Service
+@Profile({"default", "map"})
 public class SpecialtyMapService extends AbstractMapService<Specialty, Long> implements SpecialtyService {
 
     @Override

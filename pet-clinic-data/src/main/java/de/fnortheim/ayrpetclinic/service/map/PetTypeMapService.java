@@ -2,6 +2,7 @@ package de.fnortheim.ayrpetclinic.service.map;
 
 import de.fnortheim.ayrpetclinic.model.PetType;
 import de.fnortheim.ayrpetclinic.service.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -10,6 +11,7 @@ import java.util.Set;
  * created by sebastian on May, 2019
  */
 @Service
+@Profile({"default", "map"})
 public class PetTypeMapService extends AbstractMapService<PetType, Long> implements PetTypeService {
     @Override
     public Set<PetType> findAll() {
